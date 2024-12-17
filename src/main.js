@@ -34,15 +34,18 @@ function addEntry() {
 }
 
 async function getData() {
-  return await getDocs(collection(db,'entry'));
+  const data = await getDocs(collection(db,'entry'));
+  data.forEach(element => {
+    let li = document.createElement('LI');
+    let {user, text} = element.data();
+    li.innerHTML = `Usuario: ${user}, Texto: ${text}` ;
+  
+    document.querySelector("#list").appendChild(li);
+  });
 }
 
-const data = getData();
+getData();
 
-data.forEach(element => {
-  let li = document.createElement('LI');
-  let {user, text} = element.data();
-  li.innerHTML = `Usuario: ${user}, Texto: ${text}` ;
 
-  document.querySelector("#list").appendChild(li);
-});
+
+
