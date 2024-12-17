@@ -33,7 +33,12 @@ function addEntry() {
   }
 }
 
-const data = await getDocs(collection(db,'entry'));
+async function getData() {
+  return await getDocs(collection(db,'entry'));
+}
+
+const data = getData();
+
 data.forEach(element => {
   let li = document.createElement('LI');
   let {user, text} = element.data();
