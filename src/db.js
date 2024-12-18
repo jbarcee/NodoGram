@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
+import { entry } from "./components/Entry";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAXxyYhSXkua2z9LIMJDcHG07HaVdkXx-8",
@@ -32,7 +33,7 @@ export async function getData() {
     data.forEach(element => {
       let li = document.createElement('LI');
       let {user, text} = element.data();
-      li.innerHTML = `Usuario: ${user}, Texto: ${text}` ;
+      li.innerHTML = entry(user,text) ;
     
       document.querySelector("#list").appendChild(li);
     });

@@ -1,4 +1,5 @@
 import { addEntry, getData } from "./db";
+import {firebase, firebaseui} from "firebase/compat/app";
 
 
 addEventListener('submit', () => {
